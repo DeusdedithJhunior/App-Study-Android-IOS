@@ -1,5 +1,9 @@
-# App-Study-Android-IOS
+# Aplicativo "Estudar"
+
  Repositório criado para pratica de estudo.
+ 
+
+# Status: Em construção
  
 ##
 
@@ -25,3 +29,4 @@ Este é um aplicativo completo para ios e android usando firebase, firebase fire
 9. Faça upload dos dados do usuário para o Firebase
 10. Faça upload dos dados de pontuação do estudo do aplicativo para o Firebase
 11. Armazenar dados por usuário no Firebase
+

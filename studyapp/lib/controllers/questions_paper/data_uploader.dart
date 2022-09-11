@@ -18,7 +18,7 @@ class DataUploader extends GetxController {
         .loadString('AssetManifest.json');
     final Map<String, dynamic> manifestMap = json.decode(manifestContent);
 
-    //carregando arquivo json e monstrado o caminho
+    //carregando arquivo json e monstrando o caminho
     final papersInAssets = manifestMap.keys
         .where((path) =>
             path.startsWith('assets/dummy_data/papers') &&

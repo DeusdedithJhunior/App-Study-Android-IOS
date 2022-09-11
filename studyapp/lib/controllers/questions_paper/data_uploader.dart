@@ -1,4 +1,5 @@
 // ignore: depend_on_referenced_packages
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -14,6 +15,7 @@ class DataUploader extends GetxController {
   }
 
   Future<void> uploadData() async {
+    final fireStore = FirebaseFirestore.instance;
     final manifestContent = await DefaultAssetBundle.of(Get.context!)
         .loadString('AssetManifest.json');
     final Map<String, dynamic> manifestMap = json.decode(manifestContent);
@@ -36,5 +38,6 @@ class DataUploader extends GetxController {
       );
     }
     // print('quantidade: ${questionPapers.length}'); testando no debug console
+    var batch = fireStore.batch();
   }
 }

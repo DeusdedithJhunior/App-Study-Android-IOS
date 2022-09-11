@@ -3,6 +3,7 @@ import 'package:studyapp/controllers/questions_paper/data_uploader.dart';
 // ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
 
+// ignore: must_be_immutable
 class DataUploaderScreen extends StatelessWidget {
   DataUploaderScreen({super.key});
 

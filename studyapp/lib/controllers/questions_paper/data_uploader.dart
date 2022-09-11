@@ -35,6 +35,6 @@ class DataUploader extends GetxController {
         ),
       );
     }
-    print('quantidade: ${questionPapers.length}');
+    // print('quantidade: ${questionPapers.length}'); testando no debug console
   }
 }

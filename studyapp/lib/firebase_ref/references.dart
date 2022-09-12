@@ -1,4 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 final fireStore = FirebaseFirestore.instance;
-final questionPaperRF = fireStore.collection('questionPaper');
+final questionPaperRF = fireStore.collection('questionPapers');
+DocumentReference questionRF({
+  required String paperId,
+  required String questionId,
+}) =>
+    questionPaperRF.doc(paperId).collection('question').doc(questionId);

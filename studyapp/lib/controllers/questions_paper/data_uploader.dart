@@ -5,8 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:studyapp/firebase_ref/references.dart';
 import 'dart:convert';
-
 import 'package:studyapp/models/question_paper_model.dart';
+import '../../firebase_ref/loading_status.dart';
 
 class DataUploader extends GetxController {
   @override
@@ -15,7 +15,11 @@ class DataUploader extends GetxController {
     super.onReady();
   }
 
+  final loadingStatus = LoadingStatus.loading.obs; //loadingStatus is obs
+
   Future<void> uploadData() async {
+    loadingStatus.value = LoadingStatus.loading; // 0
+
     final fireStore = FirebaseFirestore.instance;
     final manifestContent = await DefaultAssetBundle.of(Get.context!)
         .loadString('AssetManifest.json');
@@ -65,6 +69,10 @@ class DataUploader extends GetxController {
         }
       }
     }
+    // salva as informações no banco
     await batch.commit();
+
+    // confirmando que os dados foram carregados para o banco
+    loadingStatus.value = LoadingStatus.completed;
   }
 }

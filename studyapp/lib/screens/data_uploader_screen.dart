@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:studyapp/controllers/questions_paper/data_uploader.dart';
+import 'package:studyapp/controllers/questions_papers/data_uploader.dart';
 // ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
 import 'package:studyapp/firebase_ref/loading_status.dart';

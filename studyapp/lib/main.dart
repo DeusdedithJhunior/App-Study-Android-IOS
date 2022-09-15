@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:studyapp/bindings/initial_bindings.dart';
 import 'package:studyapp/configs/themes/app_light_theme.dart';
+import 'package:studyapp/controllers/theme_controller.dart';
 import 'package:studyapp/routes/app_routes.dart';
 
 void main() {
@@ -23,7 +24,7 @@ class Myapp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      theme: LightTheme().buildLightTheme(),
+      theme: Get.find<ThemeController>().lightTheme,
       getPages: AppRoutes.routes(),
     );
   }

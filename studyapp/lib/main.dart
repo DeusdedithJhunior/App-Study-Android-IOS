@@ -8,7 +8,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:studyapp/bindings/initial_bindings.dart';
-import 'package:studyapp/configs/themes/app_light_theme.dart';
 import 'package:studyapp/controllers/theme_controller.dart';
 import 'package:studyapp/routes/app_routes.dart';
 

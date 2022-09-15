@@ -12,11 +12,14 @@ class FirebaseStorageService extends GetxService {
     }
     try {
       var urlRef = firebaseStorage
-          .child('question_paper_images')
+          .child('question_paper_imagens')
           .child('${imgName.toLowerCase()}.png');
       var imgUrl = await urlRef.getDownloadURL();
+
       return imgUrl;
     } catch (e) {
+      // ignore: avoid_print
+      print(e);
       return null;
     }
   }

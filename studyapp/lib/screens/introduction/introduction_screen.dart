@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../components/app_circle_button.dart';
+// import '../../components/app_circle_button.dart';
 import '../../configs/themes/app_colors.dart';
 
 class IntroductionScreen extends StatelessWidget {
@@ -28,11 +28,16 @@ class IntroductionScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 18, color: onSurfaceTextColor),
               ),
               const SizedBox(height: 40),
-              AppCircleButton(
-                onTap: () {
-                 Get.toNamed('/home');
-                },
-                child: const Icon(
+              // AppCircleButton(
+              //   onTap: () {},
+              //   child: const Icon(
+              //     Icons.arrow_forward,
+              //     size: 35,
+              //   ),
+              // ),
+              IconButton(
+                onPressed: () => Get.toNamed('/home'),
+                icon: const Icon(
                   Icons.arrow_forward,
                   size: 35,
                 ),

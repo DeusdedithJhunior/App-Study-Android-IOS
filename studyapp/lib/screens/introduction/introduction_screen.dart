@@ -17,10 +17,16 @@ class IntroductionScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const Icon(Icons.star, size: 65, color: Colors.amber),
+              const Icon(
+                Icons.star,
+                size: 65,
+              ),
               const SizedBox(height: 40),
               const Text(
-                  'Este é um aplicativo de estudo. Você pode usá-lo como quiser. Se você entender como isso funciona, poderá escalá-lo.'),
+                'Este é um aplicativo de estudo. Você pode usá-lo como quiser. Se você entender como isso funciona, poderá escalá-lo.',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 18, color: onSurfaceTextColor),
+              ),
               const SizedBox(height: 40),
               AppCircleButton(
                 onTap: () {},

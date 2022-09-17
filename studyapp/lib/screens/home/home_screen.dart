@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
                     width: 200,
                     child: FadeInImage(
                         placeholder: const AssetImage(
-                            'assets/imagens/app_splash_logo.png'),
+                            'assets/images/app_splash_logo.png'),
                         image: NetworkImage(
                             _questionPaperController.allPaperImages[index]))));
           },

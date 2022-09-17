@@ -11,13 +11,7 @@ class QuestionPaperController extends GetxController {
   }
 
   Future<void> getAllPapers() async {
-    List<String> imgName = [
-      'biology',
-      'chemistry',
-      'maths',
-      'physics-atom',
-      'physics-block'
-    ];
+    List<String> imgName = ['biology', 'chemistry', 'maths', 'physics-atom'];
     try {
       for (var img in imgName) {
         final imgUrl = await Get.find<FirebaseStorageService>().getImage(img);

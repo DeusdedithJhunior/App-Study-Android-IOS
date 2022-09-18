@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:studyapp/controllers/questions_papers/question_paper_controller.dart';
 
+import '../../configs/themes/ui_parameters.dart';
 import 'question_card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -14,6 +15,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Obx(
         () => ListView.separated(
+          padding: UIParameters.mobileScreenPadding,
           shrinkWrap: true,
           itemBuilder: (BuildContext context, int index) {
             return QuestionCard(

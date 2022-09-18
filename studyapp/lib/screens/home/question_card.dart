@@ -16,14 +16,24 @@ class QuestionCard extends StatelessWidget {
       children: [
         Row(
           children: [
-            CachedNetworkImage(
-              imageUrl: model.imageUrl,
-              placeholder: (context, url) => Container(
-                alignment: Alignment.center,
-                child: const CircularProgressIndicator(),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: ColoredBox(
+                color: Theme.of(context).primaryColor.withOpacity(0.2),
+                child: SizedBox(
+                  height: 200,
+                  width: 200,
+                  child: CachedNetworkImage(
+                    imageUrl: model.imageUrl,
+                    placeholder: (context, url) => Container(
+                      alignment: Alignment.center,
+                      child: const CircularProgressIndicator(),
+                    ),
+                    errorWidget: (context, url, error) =>
+                        Image.asset('assets/images/app_splash_logo.png'),
+                  ),
+                ),
               ),
-              errorWidget: (context, url, error) =>
-                  Image.asset('assets/images/app_splash_logo.png'),
             ),
           ],
         )

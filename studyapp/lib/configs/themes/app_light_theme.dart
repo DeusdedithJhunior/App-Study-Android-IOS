@@ -9,11 +9,11 @@ class LightTheme with SubThemeData {
   buildLightTheme() {
     final ThemeData systemLightTheme = ThemeData.light();
     return systemLightTheme.copyWith(
+      primaryColor: primaryColorLight,
+      visualDensity: VisualDensity.adaptivePlatformDensity,
       iconTheme: getIconTheme(),
       textTheme: getTexttTheme().apply(
-        bodyColor: mainTextColorLight,
-        displayColor: mainTextColorLight,
-      ),
+          bodyColor: mainTextColorLight, displayColor: mainTextColorLight),
     );
   }
 }

@@ -1,6 +1,9 @@
+import 'dart:ui';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:studyapp/configs/themes/ui_parameters.dart';
 import 'package:studyapp/models/question_paper_model.dart';
 
 class QuestionCard extends StatelessWidget {
@@ -13,6 +16,7 @@ class QuestionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: no_leading_underscores_for_local_identifiers
     const double _padding = 10.00;
     return Padding(
       padding: const EdgeInsets.all(_padding),
@@ -45,7 +49,15 @@ class QuestionCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(model.title),
+                    Text(
+                      model.title,
+                      style: TextStyle(
+                          color: UIParameters.isDarkMode()
+                              ? Theme.of(context).textTheme.bodyText1!.color
+                              : Theme.of(context).primaryColor,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    ),
                     Padding(
                       padding: const EdgeInsets.only(top: 10, bottom: 15),
                       child: Text(model.description),

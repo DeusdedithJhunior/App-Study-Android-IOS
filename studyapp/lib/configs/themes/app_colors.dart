@@ -24,5 +24,5 @@ const onSurfaceTextColor = Colors.white;
 // vai redenrizar a UI usando como base a classe UIParameters,
 // verificando se o config do smartphone é dark ou light,
 // se o smartphone for dark, o theme do app será dark, se não, o app será ligth
-LinearGradient mainGraidient(BuildContext context) =>
-    UIParameters.isDarkMode(context) ? mainGradientDark : mainGradientLight;
+LinearGradient mainGraidient() =>
+    UIParameters.isDarkMode() ? mainGradientDark : mainGradientLight;

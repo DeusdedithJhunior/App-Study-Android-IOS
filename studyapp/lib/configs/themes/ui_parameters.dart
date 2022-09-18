@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 const double _mobileScreenPadding = 25.00;
 const double _cardBorderRadius = 10.00;
@@ -15,7 +16,7 @@ class UIParameters {
 
 // vai verificar se o app está no dark ou light
 // se true retorna dark, se false, retorna ligth
-  static bool isDarkMode(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark;
+  static bool isDarkMode() {
+    return Get.isDarkMode ? true : false;
   }
 }

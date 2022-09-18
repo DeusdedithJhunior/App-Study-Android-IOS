@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
                 height: 200,
                 width: 200,
                 child: CachedNetworkImage(
-                  imageUrl: _questionPaperController.allPaper[index].imageUrl!,
+                  imageUrl: _questionPaperController.allPaper[index].imageUrl,
                   placeholder: (context, url) => Container(
                     alignment: Alignment.center,
                     child: const CircularProgressIndicator(),

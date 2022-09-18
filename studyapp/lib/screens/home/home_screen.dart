@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:studyapp/controllers/questions_papers/question_paper_controller.dart';
 
+import 'question_card.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -15,20 +17,8 @@ class HomeScreen extends StatelessWidget {
         () => ListView.separated(
           shrinkWrap: true,
           itemBuilder: (BuildContext context, int index) {
-            return ClipRRect(
-              child: SizedBox(
-                height: 200,
-                width: 200,
-                child: CachedNetworkImage(
-                  imageUrl: _questionPaperController.allPaper[index].imageUrl,
-                  placeholder: (context, url) => Container(
-                    alignment: Alignment.center,
-                    child: const CircularProgressIndicator(),
-                  ),
-                  errorWidget: (context, url, error) =>
-                      Image.asset('assets/images/app_splash_logo.png'),
-                ),
-              ),
+            return QuestionCard(
+              model: _questionPaperController.allPaper[index],
             );
           },
           itemCount: _questionPaperController.allPaper.length,

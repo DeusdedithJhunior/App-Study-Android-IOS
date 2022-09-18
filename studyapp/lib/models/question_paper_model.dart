@@ -41,6 +41,9 @@ class QuestionPaperModel {
         questionCount = json['question_count'] as int,
         questions = [];
 
+  // aqui irei converter os minutos armazenados no db em minutos
+  String timeInMinits() => "${(timeSeconds / 60).ceil()} minutos";
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;

@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:studyapp/models/question_paper_model.dart';
 import 'package:studyapp/services/firebase_storage_services.dart';
-
 import '../../firebase_ref/references.dart';
 
 class QuestionPaperController extends GetxController {
@@ -16,7 +15,7 @@ class QuestionPaperController extends GetxController {
   }
 
   Future<void> getAllPapers() async {
-    // List<String> imgName = ['biology', 'chemistry', 'maths', 'physics-atom'];
+    // List<String> imgName = ['Biology', 'Chemistry', 'Maths', 'Physics'];
     try {
       // carrega as question do cloud
       // data irá armazenar toda as coleções do claud
@@ -32,7 +31,7 @@ class QuestionPaperController extends GetxController {
       for (var paper in paperList) {
         final imgUrl =
             await Get.find<FirebaseStorageService>().getImage(paper.title);
-        paper.imageUrl = imgUrl;
+        paper.imageUrl = imgUrl!;
       }
       allPaper.assignAll(paperList);
     } catch (e) {

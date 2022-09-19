@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:studyapp/components/content_area.dart';
 import 'package:studyapp/controllers/questions_papers/question_paper_controller.dart';
 
 import '../../configs/themes/ui_parameters.dart';
@@ -13,19 +14,22 @@ class HomeScreen extends StatelessWidget {
     // ignore: no_leading_underscores_for_local_identifiers
     QuestionPaperController _questionPaperController = Get.find();
     return Scaffold(
-      body: Obx(
-        () => ListView.separated(
-          padding: UIParameters.mobileScreenPadding,
-          shrinkWrap: true,
-          itemBuilder: (BuildContext context, int index) {
-            return QuestionCard(
-              model: _questionPaperController.allPaper[index],
-            );
-          },
-          itemCount: _questionPaperController.allPaper.length,
-          separatorBuilder: (BuildContext context, int index) {
-            return const SizedBox(height: 20);
-          },
+      body: ContentArea(
+        addPadding: false,
+        child: Obx(
+          () => ListView.separated(
+            padding: UIParameters.mobileScreenPadding,
+            shrinkWrap: true,
+            itemBuilder: (BuildContext context, int index) {
+              return QuestionCard(
+                model: _questionPaperController.allPaper[index],
+              );
+            },
+            itemCount: _questionPaperController.allPaper.length,
+            separatorBuilder: (BuildContext context, int index) {
+              return const SizedBox(height: 20);
+            },
+          ),
         ),
       ),
     );

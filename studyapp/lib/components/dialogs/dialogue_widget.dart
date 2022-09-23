@@ -1,5 +1,4 @@
 // classe que vai controlar a mensagem "precisa logar" para acessar
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Dialogs {

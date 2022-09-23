@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:studyapp/components/dialogs/dialogue_widget.dart';
 import 'package:studyapp/firebase_ref/references.dart';
+import 'package:studyapp/screens/login/login_screen.dart';
 
 class AuthController extends GetxController {
   @override
@@ -62,8 +63,13 @@ class AuthController extends GetxController {
   void showLoginAlertDialogue() {
     Get.dialog(Dialogs.questionStartDialogue(onTap: () {
       Get.back();
-      // NavigateToLoginPage
+      NavigateToLoginPage();
     }), barrierDismissible: false);
+  }
+
+  // ignore: non_constant_identifier_names
+  void NavigateToLoginPage() {
+    Get.toNamed(LoginScreen.routeName);
   }
 
   bool isLoggedIn() {

@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:studyapp/components/dialogs/dialogue_widget.dart';
+import 'package:studyapp/firebase_ref/references.dart';
 
 class AuthController extends GetxController {
   @override
@@ -44,13 +46,27 @@ class AuthController extends GetxController {
     }
   }
 
-  saveUser(GoogleSignInAccount account){
-    
+  saveUser(GoogleSignInAccount account) {
+    userRF.doc(account.email).set({
+      'email': account.email,
+      'name': account.displayName,
+      'profilepic': account.photoUrl
+    });
   }
-
 
   // metodo que vai nagevar para pagina de introdução do app
   void navigateToIntroduction() {
     Get.offAllNamed('/appintroduction');
+  }
+
+  void showLoginAlertDialogue() {
+    Get.dialog(Dialogs.questionStartDialogue(onTap: () {
+      Get.back();
+      // NavigateToLoginPage
+    }), barrierDismissible: false);
+  }
+
+  bool isLoggedIn() {
+    return _auth.currentUser != null;
   }
 }

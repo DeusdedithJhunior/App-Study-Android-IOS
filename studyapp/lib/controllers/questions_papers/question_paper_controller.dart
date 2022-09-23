@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
+import 'package:studyapp/controllers/auth_controller.dart';
 import 'package:studyapp/models/question_paper_model.dart';
 import 'package:studyapp/services/firebase_storage_services.dart';
 import '../../firebase_ref/references.dart';
@@ -37,6 +38,24 @@ class QuestionPaperController extends GetxController {
     } catch (e) {
       // ignore: avoid_print
       print(e);
+    }
+  }
+
+  void navigateToQuestions(
+      {required QuestionPaperModel paper, bool tryAgain = false}) {
+    // ignore: no_leading_underscores_for_local_identifiers
+    AuthController _authController = Get.find();
+    if (_authController.isLoggedIn()) {
+      if (tryAgain) {
+        Get.back();
+        // Get.offNamed();
+      } else {
+        // Get.toNamed();
+      }
+    } else {
+      
+      print('${paper.title}');
+      _authController.showLoginAlertDialogue();
     }
   }
 }

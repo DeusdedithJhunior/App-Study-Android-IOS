@@ -13,6 +13,8 @@ import '../../configs/themes/ui_parameters.dart';
 import 'question_card.dart';
 
 class HomeScreen extends GetView<MyZoomDrawerController> {
+  static const String routeName = '/home';
+
   const HomeScreen({super.key});
 
   @override

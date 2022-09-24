@@ -37,6 +37,7 @@ class MyZoomDrawerController extends GetxController {
   }
 
   Future<void> _launch(String url) async {
+    // ignore: deprecated_member_use
     if (!await launch(url)) {
       throw 'Não foi possível iniciar $url';
     }

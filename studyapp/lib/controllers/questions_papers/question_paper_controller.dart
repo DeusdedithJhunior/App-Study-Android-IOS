@@ -54,6 +54,7 @@ class QuestionPaperController extends GetxController {
       }
     } else {
       
+      // ignore: unnecessary_string_interpolations, avoid_print
       print('${paper.title}');
       _authController.showLoginAlertDialogue();
     }

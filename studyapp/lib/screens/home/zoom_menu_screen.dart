@@ -10,6 +10,7 @@ class MyZoomMenuScreen extends GetView<MyZoomDrawerController> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: no_leading_underscores_for_local_identifiers
     User? _user = FirebaseAuth.instance.currentUser;
 
     return Container(

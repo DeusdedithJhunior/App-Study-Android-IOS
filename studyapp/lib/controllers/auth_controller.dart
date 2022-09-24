@@ -1,6 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:studyapp/components/dialogs/dialogue_widget.dart';
@@ -32,11 +30,14 @@ class AuthController extends GetxController {
 
   // login com google
   singInWithGoogle() async {
+    // ignore: no_leading_underscores_for_local_identifiers
     final GoogleSignIn _googleSingIn = GoogleSignIn();
     try {
       GoogleSignInAccount? account = await _googleSingIn.signIn();
       if (account != null) {
+        // ignore: no_leading_underscores_for_local_identifiers
         final _authAccount = await account.authentication;
+        // ignore: no_leading_underscores_for_local_identifiers
         final _credential = GoogleAuthProvider.credential(
             idToken: _authAccount.idToken,
             accessToken: _authAccount.accessToken);

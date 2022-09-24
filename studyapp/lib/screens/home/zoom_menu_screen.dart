@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:studyapp/configs/themes/app_colors.dart';
@@ -10,9 +9,6 @@ class MyZoomMenuScreen extends GetView<MyZoomDrawerController> {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: no_leading_underscores_for_local_identifiers
-    User? _user = FirebaseAuth.instance.currentUser;
-
     return Container(
       padding: UIParameters.mobileScreenPadding,
       width: double.maxFinite,
@@ -41,11 +37,6 @@ class MyZoomMenuScreen extends GetView<MyZoomDrawerController> {
                 ),
                 child: Column(
                   children: [
-                    CircleAvatar(
-                      backgroundImage: NetworkImage(_user!.photoURL!),
-                      radius: 50,
-                    ),
-                    const SizedBox(height: 10),
                     Obx(
                       () => controller.user.value == null
                           ? const SizedBox()

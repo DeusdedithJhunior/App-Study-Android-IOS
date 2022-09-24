@@ -1,8 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:studyapp/components/dialogs/dialogue_widget.dart';
 import 'package:studyapp/firebase_ref/references.dart';
+import 'package:studyapp/screens/home/home_screen.dart';
 import 'package:studyapp/screens/login/login_screen.dart';
 
 class AuthController extends GetxController {
@@ -40,6 +43,7 @@ class AuthController extends GetxController {
 
         await _auth.signInWithCredential(_credential);
         await saveUser(account);
+        navigateToHomePage();
       }
     } on Exception catch (error) {
       // ignore: avoid_print
@@ -47,6 +51,12 @@ class AuthController extends GetxController {
     }
   }
 
+  User? getUser() {
+    _user.value = _auth.currentUser;
+    return _user.value;
+  }
+
+  // metodo que salva o usuario
   saveUser(GoogleSignInAccount account) {
     userRF.doc(account.email).set({
       'email': account.email,
@@ -55,9 +65,21 @@ class AuthController extends GetxController {
     });
   }
 
+
+
+//  metodo que sai da aplicação
+  Future<void> signOut() async {
+    await _auth.signOut();
+    navigateToHomePage();
+  }
+
   // metodo que vai nagevar para pagina de introdução do app
   void navigateToIntroduction() {
     Get.offAllNamed('/appintroduction');
+  }
+
+  void navigateToHomePage() {
+    Get.offAllNamed(HomeScreen.routeName);
   }
 
   void showLoginAlertDialogue() {
